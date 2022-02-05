@@ -18,14 +18,14 @@ public class FirstLevelProductWithoutPermutationImplTest {
     @Test
     public void listOfMapForOneCombinationTest1(){
         // Tests not verified information about size of list of result. The variable numberOfString is not important it will be implemented in different class.
-        InputData inputData = new InputData(2,2,"abc",4);
+        InputData inputData = new InputData(1,2,2,"abc",4);
         int mapSize = firstLevelProductWithoutPermutation.listOfMapForOneCombination(inputData).size();
         assertEquals(3,mapSize);
     }
     @Test
     public void listOfMapForOneCombinationTest2(){
         // Tests not verified information about size of list of result. The variable numberOfString is not important it will be implemented in different class.
-        InputData inputData = new InputData(2,2,"abc",4);
+        InputData inputData = new InputData(1,2,2,"abc",4);
         Map testMap1 = new HashMap<>();
         testMap1.put('a',1);
         testMap1.put('b',1);
@@ -45,7 +45,7 @@ public class FirstLevelProductWithoutPermutationImplTest {
     @Test
     public void listOfMapForOneCombinationTest3(){
         // Tests not verified information about size of list of result. The variable numberOfString is not important it will be implemented in different class.
-        InputData inputData = new InputData(2,2,"aba",4);
+        InputData inputData = new InputData(1,2,2,"aba",4);
         Map testMap1 = new HashMap<>();
         testMap1.put('a',2);
         Map testMap2 = new HashMap<>();
@@ -60,7 +60,7 @@ public class FirstLevelProductWithoutPermutationImplTest {
     @Test
     public void listOfMapForOneCombinationTest4(){
         // Tests not verified information about size of list of result. The variable numberOfString is not important it will be implemented in different class.
-        InputData inputData = new InputData(1,3,"abc",4);
+        InputData inputData = new InputData(1,1,3,"abc",4);
         Map testMap1 = new HashMap<>();
         testMap1.put('a',1);
         Map testMap2 = new HashMap<>();

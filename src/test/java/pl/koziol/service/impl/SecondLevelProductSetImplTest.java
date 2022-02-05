@@ -48,7 +48,7 @@ class SecondLevelProductSetImplTest {
         there is no predetermined word formation order, so the number of words should be mor taken for testing.
 
          */
-        InputData inputData = new InputData(1,4,"abbcdef",10000);
+        InputData inputData = new InputData(1,1,4,"abbcdef",10000);
         Set<String> testedSet = secondLevelProductSet.allUniqueWordGenerator(fL.listOfMapForOneCombination(inputData), inputData);
         assertTrue(testedSet.contains("a"));
         assertTrue(testedSet.contains("b"));

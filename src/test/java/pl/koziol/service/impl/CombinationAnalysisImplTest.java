@@ -16,17 +16,17 @@ class CombinationAnalysisImplTest {
     @Test
     void sufficientNumberOfCombinations() {
         FirstLevelProductWithoutPermutation fL = new FirstLevelProductWithoutPermutationImpl();
-        InputData inputData = new InputData(1,4,"abbcdf",100);
+        InputData inputData = new InputData(1,1,4,"abbcdf",100);
         assertTrue(cA.sufficientNumberOfCombinations(inputData,fL.listOfMapForOneCombination(inputData)));
-        InputData inputData2 = new InputData(1,6,"abbcdf",1000);
+        InputData inputData2 = new InputData(1,1,6,"abbcdf",1000);
         assertTrue(cA.sufficientNumberOfCombinations(inputData2,fL.listOfMapForOneCombination(inputData2)));
-        InputData inputData3 = new InputData(3,3,"abb",3);
+        InputData inputData3 = new InputData(1,3,3,"abb",3);
         assertTrue(cA.sufficientNumberOfCombinations(inputData3,fL.listOfMapForOneCombination(inputData3)));
-        InputData inputData4 = new InputData(6,6,"abcbcc",60);
+        InputData inputData4 = new InputData(1,6,6,"abcbcc",60);
         assertTrue(cA.sufficientNumberOfCombinations(inputData4,fL.listOfMapForOneCombination(inputData4)));
-        InputData inputData5 = new InputData(6,6,"abcbcc",61);
+        InputData inputData5 = new InputData(1,6,6,"abcbcc",61);
         assertFalse(cA.sufficientNumberOfCombinations(inputData5,fL.listOfMapForOneCombination(inputData5)));
-        InputData inputData6 = new InputData(3,3,"abb",4);
+        InputData inputData6 = new InputData(1,3,3,"abb",4);
         assertFalse(cA.sufficientNumberOfCombinations(inputData6,fL.listOfMapForOneCombination(inputData6)));
     }
 
