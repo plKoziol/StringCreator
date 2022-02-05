@@ -19,7 +19,7 @@ public class ResultEndpoint {
     @Path("/sortedbyprocess/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<String> resultFor1Process(@PathParam("id") int id){
-        UniqueStringServiceImp unique= new UniqueStringServiceImp();
+        UniqueStringService unique= new UniqueStringServiceImp();
         List<String> result = unique.getResultById(id);
         return result;
     }
@@ -27,7 +27,7 @@ public class ResultEndpoint {
     @Path("/activeprocess/")
     @Produces(MediaType.TEXT_PLAIN)
     public Integer resultFor1Process(){
-        UniqueStringServiceImp unique = new UniqueStringServiceImp();
+        UniqueStringService unique = new UniqueStringServiceImp();
         return unique.getActiveProcesses();
     }
 }

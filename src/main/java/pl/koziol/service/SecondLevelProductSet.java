@@ -10,5 +10,5 @@ import java.util.Set;
 public interface SecondLevelProductSet {
     public char[] arrayCreator (Map<Character,Integer> map);
     public Set uniqueWordFor1CombinationGenerator(char [] array);
-    public Set allUniqueWordGenerator(List<Map<Character,Integer>> resultFormFirstLevelProduct, InputData inputData);
+
 }

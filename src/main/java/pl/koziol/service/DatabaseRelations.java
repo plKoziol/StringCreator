@@ -11,7 +11,7 @@ public interface DatabaseRelations {
     public int insertInputData(InputData inputData);
     public List<InputData> completedProcesses();
     public boolean clearDataBases();
-    public boolean insertResult (int id, Set<String> list);
+    public boolean insertResult (int id, Set<String> list, int enteredData, int maxEnteredData);
     public List<String> presentResults (int id);
 
 

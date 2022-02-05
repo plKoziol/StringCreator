@@ -170,15 +170,21 @@ public class DatabaseRelationsImpl implements DatabaseRelations {
         }
     }
     @Override
-    public boolean insertResult (int id, Set<String> list) {
+    public boolean insertResult (int id, Set<String> list, int enteredData, int maxEnteredData) {
         PreparedStatement preparedStatement;
+        int counter = enteredData;
         for(String element:list){
             try {
-                preparedStatement = connection.prepareStatement(
-                        "insert into table_result values (NULL, ?, ?);");
-                preparedStatement.setString(1, element);
-                preparedStatement.setInt(2, id);
-                preparedStatement.execute();
+                if(counter<=maxEnteredData) {
+                    preparedStatement = connection.prepareStatement(
+                            "insert into table_result values (NULL, ?, ?);");
+                    preparedStatement.setString(1, element);
+                    preparedStatement.setInt(2, id);
+                    preparedStatement.execute();
+                    counter++;
+                } else {
+                    return checkTerminated(id);
+                }
             } catch (SQLException e) {
                 System.err.println("error in recording the results");
                 e.printStackTrace();

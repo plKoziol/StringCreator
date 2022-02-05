@@ -39,37 +39,4 @@ class SecondLevelProductSetImplTest {
 
     }
 
-
-    @Test
-    void allUniqueWordGenerator() {
-        FirstLevelProductWithoutPermutation fL = new FirstLevelProductWithoutPermutationImpl();
-        /* Tests not verified information about size of list of result. The variable numberOfString is not important it will be implemented in different class.
-        Validation possible length of String is realize by different class, due to the fact that
-        there is no predetermined word formation order, so the number of words should be mor taken for testing.
-
-         */
-        InputData inputData = new InputData(1,1,4,"abbcdef",10000);
-        Set<String> testedSet = secondLevelProductSet.allUniqueWordGenerator(fL.listOfMapForOneCombination(inputData), inputData);
-        assertTrue(testedSet.contains("a"));
-        assertTrue(testedSet.contains("b"));
-        assertTrue(testedSet.contains("c"));
-        assertTrue(testedSet.contains("d"));
-        assertTrue(testedSet.contains("e"));
-        assertTrue(testedSet.contains("f"));
-        assertTrue(testedSet.contains("bb"));
-        assertTrue(testedSet.contains("bfb"));
-        assertTrue(testedSet.contains("bba"));
-        assertTrue(testedSet.contains("fbda"));
-        assertTrue(testedSet.contains("bcbd"));
-        assertTrue(testedSet.contains("abbe"));
-        assertTrue(testedSet.contains("cdef"));
-        assertFalse(testedSet.contains(""));
-        assertFalse(testedSet.contains("aass"));
-        assertFalse(testedSet.contains("sgsg"));
-        assertFalse(testedSet.contains("bbbbbb"));
-        assertFalse(testedSet.contains("abbcde"));
-        assertFalse(testedSet.contains("abbcdef"));
-        assertFalse(testedSet.contains("abbcef"));
-
-    }
 }

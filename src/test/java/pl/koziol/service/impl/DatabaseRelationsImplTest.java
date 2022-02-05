@@ -71,7 +71,7 @@ class DatabaseRelationsImplTest {
         list.add("asdafasfsdasdafsaf");
         list.add("asdaasdfasfafsaf");
         list.add("asdafasfsdadafsaf");
-        assertTrue(s.insertResult(2,list));
+        assertTrue(s.insertResult(2,list,0,4));
     }
 
 
@@ -90,7 +90,7 @@ class DatabaseRelationsImplTest {
         list.add("asdafasfsdasdafsaf");
         list.add("asdaasdfasfafsaf");
         list.add("asdafasfsdadafsaf");
-        s.insertResult(2,list);
+        s.insertResult(2,list,0,4);
         s.presentResults(2);
         s.presentResults(1);
         assertTrue(s.checkTerminated(2));

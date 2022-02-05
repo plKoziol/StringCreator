@@ -1,6 +1,7 @@
 package pl.koziol.service.impl;
 
 import pl.koziol.model.InputData;
+import pl.koziol.service.DatabaseRelations;
 import pl.koziol.service.SecondLevelProductSet;
 
 import java.util.*;
@@ -38,18 +39,6 @@ public class SecondLevelProductSetImpl implements SecondLevelProductSet {
         return set;
     }
 
-
-    @Override
-    public Set allUniqueWordGenerator(List<Map<Character,Integer>> list, InputData inputData) {
-        Set<String> resultSet = new HashSet();
-        for(Map map : list){
-            resultSet.addAll(uniqueWordFor1CombinationGenerator(arrayCreator(map)));
-            if(inputData.getNumberOfString()<resultSet.size()){
-                return resultSet;
-            }
-        }
-        return resultSet;
-    }
     protected Set<String> setSingleResult = new HashSet<>();
     char[] positionChanger (char[] inputArray, int first, int second) {
         char a = inputArray[first];
