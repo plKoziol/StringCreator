@@ -6,6 +6,7 @@ import pl.koziol.service.DatabaseRelations;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class DatabaseRelationsImpl implements DatabaseRelations {
 
@@ -168,8 +169,8 @@ public class DatabaseRelationsImpl implements DatabaseRelations {
             return false;
         }
     }
-
-    public boolean insertResult (int id, List<String> list) {
+    @Override
+    public boolean insertResult (int id, Set<String> list) {
         PreparedStatement preparedStatement;
         for(String element:list){
             try {
@@ -186,8 +187,9 @@ public class DatabaseRelationsImpl implements DatabaseRelations {
         }
         return confirmTerminated(id);
     }
-
-    public void presentResults (int id){
+    @Override
+    public List<String> presentResults (int id){
+        List<String> list = new ArrayList<>();
         if(checkTerminated(id)){
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement("select * from table_result where id_process = ?");
@@ -198,6 +200,7 @@ public class DatabaseRelationsImpl implements DatabaseRelations {
                 while (resultSet.next()){
                     processID = resultSet.getInt("id_process");
                     resultString = resultSet.getString("unique_string");
+                    list.add(resultString);
                     System.out.println("process: "+processID + " unique word: " + resultString);
 
 
@@ -209,6 +212,7 @@ public class DatabaseRelationsImpl implements DatabaseRelations {
         } else {
             System.out.println("process: " + id + " incomplete");
         }
+        return list;
 
     }
 

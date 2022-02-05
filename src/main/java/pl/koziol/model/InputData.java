@@ -74,4 +74,11 @@ public class InputData {
         this.numberOfString = numberOfString;
         this.threadTerminated = threadTerminated;
     }
+
+    public InputData(int minLength, int maxLength, String inputCharacter, int numberOfString) {
+        this.minLength = minLength;
+        this.maxLength = maxLength;
+        this.inputCharacter = inputCharacter;
+        this.numberOfString = numberOfString;
+    }
 }

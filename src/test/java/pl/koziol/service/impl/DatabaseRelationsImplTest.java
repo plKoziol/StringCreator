@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 import pl.koziol.model.InputData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -60,7 +62,7 @@ class DatabaseRelationsImplTest {
         InputData inputData = new InputData(1,2,2,"abc",4);
         s.insertInputData(inputData);
         s.insertInputData(inputData);
-        List<String> list = new ArrayList<>();
+        Set<String> list = new HashSet<>();
         list.add("asdasfafsaf");
         list.add("asdasfasfsaf");
         list.add("assadafsaf");
@@ -79,7 +81,7 @@ class DatabaseRelationsImplTest {
         InputData inputData = new InputData(1,2,2,"abc",4);
         s.insertInputData(inputData);
         s.insertInputData(inputData);
-        List<String> list = new ArrayList<>();
+        Set<String> list = new HashSet<>();
         list.add("asdasfafsaf");
         list.add("asdasfasfsaf");
         list.add("assadafsaf");
