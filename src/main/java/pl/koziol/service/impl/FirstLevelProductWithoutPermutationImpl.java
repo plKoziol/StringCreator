@@ -14,15 +14,28 @@ public class FirstLevelProductWithoutPermutationImpl implements FirstLevelProduc
 
     @Override
     public List<Map<Character, Integer>> listOfMapForOneCombination(InputData inputData) {
+        CombinationAnalysisImpl combinationAnalysis = new CombinationAnalysisImpl();
         CharacterCollectionGenerator characterCollectionGenerator = new CharacterCollectionGeneratorImpl();
         CharacterCollection characterCollection = characterCollectionGenerator.collectionCreator(inputData);
         List<Integer> numberOperations = numberOperationCounter(characterCollection);
         List<Map<Character,Integer>> resultList = new ArrayList<>();
         int maxValueOperation = numberOperations.get(numberOperations.size()-1);
+        int sumCombinationAnalysis = 0;
         for(int i = 0; i < maxValueOperation; i++){
             Map<Character,Integer> singleMap = singleSolution(characterCollection,numberOperations,i,inputData);
             if(!singleMap.isEmpty()){
                 resultList.add(singleMap);
+            }
+            int lengthOfWord =0;
+            for(Integer integer:singleMap.values()){
+                lengthOfWord += integer;
+            }
+            if(lengthOfWord>=inputData.getMinLength() &&lengthOfWord<= inputData.getMaxLength()){
+                sumCombinationAnalysis += combinationAnalysis.numberOfCombinationForm1Map(singleMap);
+            }
+
+            if(sumCombinationAnalysis>=inputData.getNumberOfString()){
+                return resultList;
             }
         }
         return resultList;

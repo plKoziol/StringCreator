@@ -2,7 +2,6 @@ package pl.koziol.service.impl;
 
 import org.junit.jupiter.api.Test;
 import pl.koziol.model.InputData;
-import pl.koziol.service.CombinationAnalysis;
 import pl.koziol.service.FirstLevelProductWithoutPermutation;
 
 import java.util.HashMap;
@@ -20,9 +19,9 @@ class CombinationAnalysisImplTest {
         assertTrue(cA.sufficientNumberOfCombinations(inputData,fL.listOfMapForOneCombination(inputData)));
         InputData inputData2 = new InputData(1,1,6,"abbcdf",1000);
         assertTrue(cA.sufficientNumberOfCombinations(inputData2,fL.listOfMapForOneCombination(inputData2)));
-        InputData inputData3 = new InputData(1,3,3,"abb",3);
+        InputData inputData3 = new InputData(1,1,3,"abb",3);
         assertTrue(cA.sufficientNumberOfCombinations(inputData3,fL.listOfMapForOneCombination(inputData3)));
-        InputData inputData4 = new InputData(1,6,6,"abcbcc",60);
+        InputData inputData4 = new InputData(1,1,2,"12fvdf",2);
         assertTrue(cA.sufficientNumberOfCombinations(inputData4,fL.listOfMapForOneCombination(inputData4)));
         InputData inputData5 = new InputData(1,6,6,"abcbcc",61);
         assertFalse(cA.sufficientNumberOfCombinations(inputData5,fL.listOfMapForOneCombination(inputData5)));

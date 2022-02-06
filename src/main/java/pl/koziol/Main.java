@@ -6,7 +6,6 @@ import pl.koziol.service.UniqueStringService;
 import pl.koziol.service.impl.DatabaseRelationsImpl;
 import pl.koziol.service.impl.UniqueStringServiceImp;
 
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -82,17 +81,11 @@ public class Main {
         } catch (RuntimeException e){
             System.out.println("enter correct data");
         }
-
-
-
-
     }
 
 
     public static void main(String[] args) {
-
         menu();
-
     }
 
 }

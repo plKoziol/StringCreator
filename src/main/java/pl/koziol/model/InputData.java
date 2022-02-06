@@ -1,7 +1,5 @@
 package pl.koziol.model;
 
-import java.util.List;
-
 public class InputData {
     private int id;
     private int minLength;
@@ -14,32 +12,16 @@ public class InputData {
         return minLength;
     }
 
-    public void setMinLength(int minLength) {
-        this.minLength = minLength;
-    }
-
     public int getMaxLength() {
         return maxLength;
-    }
-
-    public void setMaxLength(int maxLength) {
-        this.maxLength = maxLength;
     }
 
     public String getInputCharacter() {
         return inputCharacter;
     }
 
-    public void setInputCharacter(String inputCharacter) {
-        this.inputCharacter = inputCharacter;
-    }
-
     public int getNumberOfString() {
         return numberOfString;
-    }
-
-    public void setNumberOfString(int numberOfString) {
-        this.numberOfString = numberOfString;
     }
 
     public int getId() {
@@ -48,14 +30,6 @@ public class InputData {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public boolean isThreadTerminated() {
-        return threadTerminated;
-    }
-
-    public void setThreadTerminated(boolean threadTerminated) {
-        this.threadTerminated = threadTerminated;
     }
 
     public InputData(int id, int minLength, int maxLength, String inputCharacter, int numberOfString) {

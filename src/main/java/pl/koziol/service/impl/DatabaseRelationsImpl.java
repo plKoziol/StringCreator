@@ -129,9 +129,8 @@ public class DatabaseRelationsImpl implements DatabaseRelations {
     @Override
     public boolean clearDataBases() {
         try {
-            boolean result = statement.execute("delete from table_processes");
-            result = statement.execute("delete from table_result");
-
+            statement.execute("delete from table_processes");
+            statement.execute("delete from table_result");
 
         } catch (SQLException e) {
             System.err.println("delete error");
@@ -183,7 +182,7 @@ public class DatabaseRelationsImpl implements DatabaseRelations {
                     preparedStatement.execute();
                     counter++;
                 } else {
-                    return checkTerminated(id);
+                    return confirmTerminated(id);
                 }
             } catch (SQLException e) {
                 System.err.println("error in recording the results");

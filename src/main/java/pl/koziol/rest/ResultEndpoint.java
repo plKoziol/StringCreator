@@ -1,6 +1,5 @@
 package pl.koziol.rest;
 
-import pl.koziol.model.InputData;
 import pl.koziol.service.UniqueStringService;
 import pl.koziol.service.impl.UniqueStringServiceImp;
 
@@ -10,7 +9,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/result")

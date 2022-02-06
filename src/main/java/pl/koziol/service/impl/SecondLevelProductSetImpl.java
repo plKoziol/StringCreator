@@ -1,7 +1,5 @@
 package pl.koziol.service.impl;
 
-import pl.koziol.model.InputData;
-import pl.koziol.service.DatabaseRelations;
 import pl.koziol.service.SecondLevelProductSet;
 
 import java.util.*;
@@ -11,9 +9,8 @@ public class SecondLevelProductSetImpl implements SecondLevelProductSet {
 
     @Override
     public char[] arrayCreator(Map<Character,Integer> map) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>(map.values());
         int sum = 0;
-        list.addAll(map.values());
         for (Integer result : list){
             sum += result;
         }
@@ -32,9 +29,8 @@ public class SecondLevelProductSetImpl implements SecondLevelProductSet {
 
     @Override
     public Set uniqueWordFor1CombinationGenerator(char[] array) {
-        Set<String> set = new HashSet<>();
+        Set<String> set = new HashSet<>(setSingleResult);
         permutation(array,0);
-        set.addAll(setSingleResult);
         setSingleResult.removeAll(set);
         return set;
     }

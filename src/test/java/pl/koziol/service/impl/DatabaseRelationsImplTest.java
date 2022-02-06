@@ -3,17 +3,14 @@ package pl.koziol.service.impl;
 import org.junit.jupiter.api.Test;
 import pl.koziol.model.InputData;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DatabaseRelationsImplTest {
     DatabaseRelationsImpl s = new DatabaseRelationsImpl();
-
-
+    // Tests are not created with thread support. They must be performed separately
     @Test
     void selectMaxID() {
         s.clearDataBases();
@@ -22,13 +19,11 @@ class DatabaseRelationsImplTest {
         s.insertInputData(inputData);
         s.insertInputData(inputData);
         assertEquals(3,s.selectMaxID());
-
     }
 
     @Test
     void insertInputData() {
         s.clearDataBases();
-
         InputData inputData = new InputData(1,2,2,"abc",4);
         assertEquals(1,s.insertInputData(inputData));
         assertEquals(2,s.insertInputData(inputData));
@@ -52,8 +47,6 @@ class DatabaseRelationsImplTest {
         s.confirmTerminated(2);
         s.confirmTerminated(5);
         assertEquals(2,s.completedProcesses().size());
-
-
     }
 
     @Test

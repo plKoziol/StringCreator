@@ -22,8 +22,7 @@ public class CombinationAnalysisImpl implements CombinationAnalysis {
     }
     protected int numberOfCombinationForm1Map (Map<Character, Integer> map){
         int result = 1;
-        List<Integer> listValue = new ArrayList<>();
-        listValue.addAll(map.values());
+        List<Integer> listValue = new ArrayList<>(map.values());
         AtomicInteger sizeOfWord = new AtomicInteger();
         listValue.stream().forEach(e -> sizeOfWord.addAndGet(e));
         int remainingFreeSpace = sizeOfWord.get();

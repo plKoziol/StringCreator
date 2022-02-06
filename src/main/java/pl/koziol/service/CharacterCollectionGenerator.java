@@ -9,6 +9,6 @@ public interface CharacterCollectionGenerator {
      * This data is represented by class CharacterCollection
      * This is the raw data resulting from the input String analysis
      * */
-    public CharacterCollection collectionCreator (InputData inputData);
+    CharacterCollection collectionCreator (InputData inputData);
 
 }

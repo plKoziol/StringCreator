@@ -1,8 +1,8 @@
 package pl.koziol.service.impl;
 
 import pl.koziol.model.InputData;
+import pl.koziol.service.CombinationAnalysis;
 import pl.koziol.service.DatabaseRelations;
-import pl.koziol.service.FirstLevelProductWithoutPermutation;
 import pl.koziol.service.SecondLevelProductSet;
 import pl.koziol.service.UniqueStringService;
 
@@ -31,9 +31,9 @@ public class UniqueStringServiceImp implements UniqueStringService {
         for(Map map : list){
             Set<String> strings = secondLevelProductSet.uniqueWordFor1CombinationGenerator(secondLevelProductSet.arrayCreator(map));
             resultSet.addAll(strings);
-            counterSingleSave += strings.size();
-            if(counterSingleSave>1000){
-                dbRelations.insertResult(inputData.getId(),resultSet,counter,counterSingleSave);
+            counterSingleSave = resultSet.size();
+            if(counterSingleSave<=1000){
+                dbRelations.insertResult(inputData.getId(),resultSet,counter,inputData.getNumberOfString());
                 counter +=counterSingleSave;
                 resultSet = new HashSet<>();
             }
@@ -49,18 +49,29 @@ public class UniqueStringServiceImp implements UniqueStringService {
 
         Thread thread = new Thread(() ->{
             processesCounter(true);
+            CombinationAnalysis combinationAnalysis = new CombinationAnalysisImpl();
             InputData inputData = new InputData(minLength,maxLength,inputCharacter,numberOfString);
             int idProcess = dbRelations.insertInputData(inputData);
             System.out.println("Process id = " + idProcess + " save input data time = " + System.currentTimeMillis());
             inputData.setId(idProcess);
             Set<String> resultSet = new HashSet<>();
             List<Map<Character,Integer>> list = new FirstLevelProductWithoutPermutationImpl().listOfMapForOneCombination(inputData);
-            if(new CombinationAnalysisImpl().sufficientNumberOfCombinations(inputData,list)){
+            boolean sufficientNumber;
+            try {
+                sufficientNumber = combinationAnalysis.sufficientNumberOfCombinations(inputData,list);
+
+            } catch (Exception e){
+                sufficientNumber = false;
+            }
+            if(sufficientNumber){
                 // in order to avoid out of memory exception, the maximum set is 1000. Larger values are in the database.
-                resultSet = allUniqueWordGenerator(list,inputData);
-            //    dbRelations.insertResult(idProcess,resultSet);
+                try{
+                    resultSet = allUniqueWordGenerator(list,inputData);
+                    processesCounter(false);
+                } catch (Exception e){
+                    processesCounter(false);
+                }
                 System.out.println("Process id = " + idProcess + " save results time = " + System.currentTimeMillis());
-                processesCounter(false);
             } else {
                 processesCounter(false);
                 try {

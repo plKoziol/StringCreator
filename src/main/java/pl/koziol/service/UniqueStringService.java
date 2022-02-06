@@ -1,21 +1,24 @@
 package pl.koziol.service;
 
-import pl.koziol.model.InputData;
-import pl.koziol.service.impl.CombinationAnalysisImpl;
-import pl.koziol.service.impl.DatabaseRelationsImpl;
-import pl.koziol.service.impl.FirstLevelProductWithoutPermutationImpl;
-import pl.koziol.service.impl.SecondLevelProductSetImpl;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+/**
+ * Interface representing the basic functions of the program and the business logic.
+ */
 public interface UniqueStringService {
-    public void createUniqueWords (int minLength, int maxLength, String inputCharacter, int numberOfString);
-    public int getActiveProcesses ();
-    public List<String> getResultById (int id);
 
+    /**
+     * The method that takes parameters, saves the process in the database, starts calculations and stores their results in the database.
+     */
+    void createUniqueWords (int minLength, int maxLength, String inputCharacter, int numberOfString);
 
+    /**
+     * The method that returns the number of active processes
+     */
+    int getActiveProcesses ();
 
+    /**
+     * The method returns a list of strings with results for the process with the specified id.
+     */
+    List<String> getResultById (int id);
 }

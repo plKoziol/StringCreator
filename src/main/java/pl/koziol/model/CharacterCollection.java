@@ -18,23 +18,8 @@ public class CharacterCollection {
         return characterList;
     }
 
-    public void setCharacterList(List<Character> characterList) {
-        this.characterList = characterList;
-    }
-
     public HashMap<Character, Integer> getCharacterMap() {
         return characterMap;
     }
 
-    public void setCharacterMap(HashMap<Character, Integer> characterMap) {
-        this.characterMap = characterMap;
-    }
-
-    public String getInputCharacter() {
-        return inputCharacter;
-    }
-
-    public void setInputCharacter(String inputCharacter) {
-        this.inputCharacter = inputCharacter;
-    }
 }
