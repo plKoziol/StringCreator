@@ -1,31 +1,27 @@
 package pl.koziol.rest;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 import pl.koziol.service.UniqueStringService;
-import pl.koziol.service.impl.UniqueStringServiceImp;
 
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/result")
+@RequiredArgsConstructor
+@RestController()
 public class ResultEndpoint {
-    @GET
-    @Path("/sortedbyprocess/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<String> resultFor1Process(@PathParam("id") int id){
-        UniqueStringService unique= new UniqueStringServiceImp();
-        List<String> result = unique.getResultById(id);
-        return result;
+
+    private final UniqueStringService unique;
+
+    @GetMapping("/sorted/process/{id}")
+    public List<String> resultFor1Process(@PathVariable int id){
+        return unique.getResultById(id);
     }
-    @GET
-    @Path("/activeprocess/")
-    @Produces(MediaType.TEXT_PLAIN)
+
+    @GetMapping("/active/process")
     public Integer resultFor1Process(){
-        UniqueStringService unique = new UniqueStringServiceImp();
         return unique.getActiveProcesses();
     }
 }

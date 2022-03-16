@@ -1,19 +1,14 @@
-package pl.koziol.service.impl;
+package pl.koziol.service;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import org.junit.Test;
-import pl.koziol.model.InputData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+@SpringBootTest
+@RequiredArgsConstructor
+public class FirstLevelProductWithoutPermutationTest {
 
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FirstLevelProductWithoutPermutationImplTest {
-
-    public FirstLevelProductWithoutPermutationImpl firstLevelProductWithoutPermutation = new FirstLevelProductWithoutPermutationImpl();
-
+    public final FirstLevelProductWithoutPermutation firstLevelProductWithoutPermutation;
+/*
 
     @Test
     public void listOfMapForOneCombinationTest1(){
@@ -91,5 +86,5 @@ public class FirstLevelProductWithoutPermutationImplTest {
         List testedList = firstLevelProductWithoutPermutation.listOfMapForOneCombination(inputData);
         assertEquals(list,testedList);
     }
-
+*/
 }

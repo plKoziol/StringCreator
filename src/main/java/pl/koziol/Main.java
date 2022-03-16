@@ -1,16 +1,11 @@
 package pl.koziol;
 
-import pl.koziol.model.InputData;
-import pl.koziol.service.DatabaseRelations;
-import pl.koziol.service.UniqueStringService;
-import pl.koziol.service.impl.DatabaseRelationsImpl;
-import pl.koziol.service.impl.UniqueStringServiceImp;
-
-import java.util.List;
-import java.util.Scanner;
-
+/*todo przerzucic funkcjonalności do Endpointów
+*  stworzyć możliwość testowania endpoitów,
+* wszytkie testy do wymiany*/
+/*
 public class Main {
-    static UniqueStringService unique = new UniqueStringServiceImp();
+    static UniqueStringService unique = new UniqueStringService();
     static DatabaseRelations dbRelations = new DatabaseRelationsImpl();
     public static int menu(){
         System.out.println("Select an activity");
@@ -88,4 +83,4 @@ public class Main {
         menu();
     }
 
-}
+}*/

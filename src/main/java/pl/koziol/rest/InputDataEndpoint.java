@@ -2,36 +2,35 @@ package pl.koziol.rest;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 import pl.koziol.model.InputData;
 import pl.koziol.service.DatabaseRelations;
-import pl.koziol.service.impl.DatabaseRelationsImpl;
-import pl.koziol.service.impl.UniqueStringServiceImp;
-
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import pl.koziol.service.UniqueStringService;
 
 
-@Path("/input")
+@RestController()
+@RequiredArgsConstructor
 public class InputDataEndpoint {
-    @POST
-    @Path("/addnew")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response startProcess(InputData inputData){
-        UniqueStringServiceImp process = new UniqueStringServiceImp();
+
+    private final UniqueStringService process;
+    private final DatabaseRelations db;
+
+    @PostMapping("/add/new")
+    public void startProcess(@RequestBody InputData inputData){
         process.createUniqueWords(
                 inputData.getMinLength(),
                 inputData.getMaxLength(),
                 inputData.getInputCharacter(),
                 inputData.getNumberOfString());
-        return Response.ok().build();
     }
 
-    @GET
-    @Path("/completedprocesses")
-    @Produces(MediaType.APPLICATION_JSON)
+    @GetMapping("/completed/processes")
     public List<InputData> completedProcesses(){
-        DatabaseRelations db = new DatabaseRelationsImpl();
+        //todo Przerobić na współprace z nową bazą danych
         return db.completedProcesses();
     }
 

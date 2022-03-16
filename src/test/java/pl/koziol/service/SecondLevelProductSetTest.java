@@ -1,13 +1,14 @@
-package pl.koziol.service.impl;
+package pl.koziol.service;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-class SecondLevelProductSetImplTest {
-    SecondLevelProductSetImpl secondLevelProductSet = new SecondLevelProductSetImpl();
+@SpringBootTest
+class SecondLevelProductSetTest {
+    SecondLevelProductSet secondLevelProductSet = new SecondLevelProductSet();
 
     @Test
     void arrayCreator() {

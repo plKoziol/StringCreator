@@ -1,37 +1,24 @@
 package pl.koziol.model;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@RequiredArgsConstructor
+@Getter
+@Setter
+@Entity
 public class UniqueString {
+    @Id
     private int id;
     private String uniqueString;
     private int idProcess;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUniqueString() {
-        return uniqueString;
-    }
-
-    public void setUniqueString(String uniqueString) {
-        this.uniqueString = uniqueString;
-    }
-
-    public int getIdProcess() {
-        return idProcess;
-    }
-
-    public void setIdProcess(int idProcess) {
-        this.idProcess = idProcess;
-    }
-
-    public UniqueString(int id, String uniqueString, int idProcess) {
-        this.id = id;
-        this.uniqueString = uniqueString;
-        this.idProcess = idProcess;
+    public UniqueString(String element, int id) {
+        this.uniqueString =element;
+        this.idProcess = id;
     }
 }
